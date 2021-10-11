@@ -52,15 +52,10 @@ class _LoginState extends State {
                   SizedBox(
                     height: HEIGHT * 0.03,
                   ),
-                  AnimatedTextKit(
-                    animatedTexts: [
-                      TypewriterAnimatedText("Login",
-                          textStyle:
-                              GoogleFonts.zcoolKuaiLe(fontSize: WIDTH * 0.1),
-                          speed: const Duration(milliseconds: 200))
-                    ],
-                    // pause: Duration(seconds: 2),
-                    repeatForever: true,
+                  Text(
+                    "LOGIN",
+                    style: GoogleFonts.righteous(
+                        fontSize: 50, color: Colors.white),
                   ),
                   SizedBox(
                     height: HEIGHT * 0.04,
