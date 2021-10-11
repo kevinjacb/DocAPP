@@ -1,5 +1,6 @@
-import 'dart:html';
+import 'dart:ui' as ui;
 
 class Variables {
-  double HEIGHT = 0, WIDTH = 0;
+  double HEIGHT = ui.window.physicalSize.height / ui.window.devicePixelRatio,
+      WIDTH = ui.window.physicalSize.width / ui.window.devicePixelRatio;
 }

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:doc_app/variables/variables.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../widgets/registerbutton.dart';
 
 class Register extends StatefulWidget {
@@ -32,7 +33,9 @@ class _RegisterState extends State<Register> {
                     SizedBox(
                       height: variables.HEIGHT * 0.07,
                     ),
-                    Text("Create Account"),
+                    Text("Create Account",
+                        style: GoogleFonts.righteous(
+                            fontSize: 50, color: Colors.white)),
                     SizedBox(
                       height: variables.HEIGHT * 0.02,
                     ),

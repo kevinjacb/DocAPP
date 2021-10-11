@@ -1,6 +1,4 @@
 import 'dart:ui';
-
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:doc_app/variables/variables.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -17,6 +15,8 @@ class Login extends StatefulWidget {
 class _LoginState extends State {
   @override
   Widget build(BuildContext context) {
+    Variables().HEIGHT = MediaQuery.of(context).size.height;
+    Variables().WIDTH = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBody: true,

@@ -1,8 +1,9 @@
+import 'package:doc_app/variables/variables.dart';
 import 'package:flutter/material.dart';
 import 'screens/login.dart';
 
 void main() {
-  runApp(const DocApp());
+  runApp(MaterialApp(home: DocApp()));
 }
 
 class DocApp extends StatefulWidget {
@@ -15,11 +16,6 @@ class DocApp extends StatefulWidget {
 class _DocAppState extends State {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SafeArea(
-        child: Login(),
-      ),
-    );
+    return Login();
   }
 }
