@@ -24,13 +24,15 @@ class _RegisterButtonState extends State<RegisterButton> {
         gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: <Color>[Colors.blue, Colors.cyan]),
+            colors: <Color>[Colors.black38, Colors.cyanAccent]),
       ),
       child: Center(
         child: Text(
           "Register",
           style: GoogleFonts.robotoMono(
-              fontSize: width * 0.15, fontWeight: FontWeight.bold),
+              fontSize: width * 0.15,
+              fontWeight: FontWeight.bold,
+              color: Colors.white),
         ),
       ),
     );

@@ -15,8 +15,7 @@ class Login extends StatefulWidget {
 class _LoginState extends State {
   @override
   Widget build(BuildContext context) {
-    Variables().HEIGHT = MediaQuery.of(context).size.height;
-    Variables().WIDTH = MediaQuery.of(context).size.width;
+    const textStyle = TextStyle(color: Colors.white);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBody: true,
@@ -62,11 +61,20 @@ class _LoginState extends State {
                     width: Variables().WIDTH * 0.9,
                     child: const TextField(
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        prefixIcon: Icon(
+                          Icons.email,
+                          color: Colors.lightGreenAccent,
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                            ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
                         labelText: 'Email',
                         hintText: 'Email',
+                        labelStyle: textStyle,
+                        hintStyle: textStyle,
                       ),
                     ),
                   ),
@@ -78,11 +86,20 @@ class _LoginState extends State {
                     child: const TextField(
                       obscureText: true,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                            ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
+                        prefixIcon: Icon(
+                          Icons.password,
+                          color: Colors.lightGreenAccent,
+                        ),
                         labelText: 'Password',
                         hintText: 'Password',
+                        labelStyle: textStyle,
+                        hintStyle: textStyle,
                       ),
                     ),
                   ),

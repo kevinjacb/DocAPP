@@ -46,13 +46,15 @@ class _LoginButtonState extends State<LoginButton> {
             gradient: const LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: <Color>[Colors.white, Colors.cyan]),
+                colors: <Color>[Colors.black38, Colors.cyanAccent]),
           ),
           child: Center(
             child: Text(
               "Login",
               style: GoogleFonts.robotoMono(
-                  fontSize: width * 0.15, fontWeight: FontWeight.bold),
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
           ),
         ),
