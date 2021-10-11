@@ -4,6 +4,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/loginbutton.dart';
+import 'register.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -24,8 +25,9 @@ class _LoginState extends State {
         height: HEIGHT,
         width: WIDTH,
         decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("images/bgimage.png"), fit: BoxFit.fill)),
+          image: DecorationImage(
+              image: AssetImage("images/bgimage.png"), fit: BoxFit.fill),
+        ),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
           child: SingleChildScrollView(
@@ -35,9 +37,13 @@ class _LoginState extends State {
                   SizedBox(
                     height: HEIGHT * 0.1,
                   ),
-                  const CircleAvatar(
-                    radius: 60,
-                    backgroundImage: AssetImage('images/icon.png'),
+                  Container(
+                    width: WIDTH * 0.3,
+                    height: WIDTH * 0.3,
+                    child: const CircleAvatar(
+                      //radius: 60,
+                      backgroundImage: AssetImage('images/icon.png'),
+                    ),
                   ),
                   SizedBox(
                     height: HEIGHT * 0.05,
@@ -48,8 +54,9 @@ class _LoginState extends State {
                   AnimatedTextKit(
                     animatedTexts: [
                       TypewriterAnimatedText("Login",
-                          textStyle: GoogleFonts.zcoolKuaiLe(fontSize: 50),
-                          speed: Duration(milliseconds: 200))
+                          textStyle:
+                              GoogleFonts.zcoolKuaiLe(fontSize: WIDTH * 0.1),
+                          speed: const Duration(milliseconds: 200))
                     ],
                     // pause: Duration(seconds: 2),
                     repeatForever: true,
@@ -75,6 +82,7 @@ class _LoginState extends State {
                   Container(
                     width: WIDTH * 0.9,
                     child: const TextField(
+                      obscureText: true,
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius:
@@ -112,12 +120,20 @@ class _LoginState extends State {
               style: GoogleFonts.andada(fontSize: 15, color: Colors.white),
             ),
             TextButton(
-                onPressed: null,
-                child: Text(
-                  "Sign Up",
-                  style:
-                      GoogleFonts.robotoMono(fontSize: 15, color: Colors.cyan),
-                ))
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Register(),
+                  ),
+                );
+              },
+              child: Text(
+                "Sign Up",
+                style: GoogleFonts.robotoMono(
+                    fontSize: WIDTH * 0.03, color: Colors.cyan),
+              ),
+            )
           ],
         ),
       ),

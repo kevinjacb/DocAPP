@@ -3,16 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginButton extends StatefulWidget {
+class RegisterButton extends StatefulWidget {
   double width, height;
-  LoginButton(this.width, this.height, {Key? key}) : super(key: key);
+  RegisterButton(this.width, this.height, {Key? key}) : super(key: key);
   @override
-  _LoginButtonState createState() => _LoginButtonState(this.width, this.height);
+  _RegisterButtonState createState() =>
+      _RegisterButtonState(this.width, this.height);
 }
 
-class _LoginButtonState extends State<LoginButton> {
+class _RegisterButtonState extends State<RegisterButton> {
   double width, height;
-  _LoginButtonState(this.width, this.height);
+  _RegisterButtonState(this.width, this.height);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,11 +24,11 @@ class _LoginButtonState extends State<LoginButton> {
         gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: <Color>[Colors.white, Colors.cyan]),
+            colors: <Color>[Colors.blue, Colors.cyan]),
       ),
       child: Center(
         child: Text(
-          "Login",
+          "Register",
           style: GoogleFonts.robotoMono(
               fontSize: width * 0.15, fontWeight: FontWeight.bold),
         ),
