@@ -17,6 +17,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     const textStyle = TextStyle(color: Colors.white);
     Variables variables = Variables();
+    const iconColor = Colors.cyanAccent;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
@@ -49,17 +50,20 @@ class _RegisterState extends State<Register> {
                       width: variables.WIDTH * 0.9,
                       child: const TextField(
                         decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colors.white,
-                              ),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(20))),
-                          labelText: 'Username',
-                          hintText: 'Username',
-                          labelStyle: textStyle,
-                          hintStyle: textStyle,
-                        ),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.white,
+                                ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20))),
+                            labelText: 'Username',
+                            hintText: 'Username',
+                            labelStyle: textStyle,
+                            hintStyle: textStyle,
+                            prefixIcon: Icon(
+                              Icons.person,
+                              color: iconColor,
+                            )),
                       ),
                     ),
                     SizedBox(
@@ -79,6 +83,10 @@ class _RegisterState extends State<Register> {
                           labelStyle: textStyle,
                           hintStyle: textStyle,
                           hintText: 'Email',
+                          prefixIcon: Icon(
+                            Icons.email,
+                            color: iconColor,
+                          ),
                         ),
                       ),
                     ),
@@ -100,6 +108,10 @@ class _RegisterState extends State<Register> {
                           hintText: 'Password',
                           labelStyle: textStyle,
                           hintStyle: textStyle,
+                          prefixIcon: Icon(
+                            Icons.password,
+                            color: iconColor,
+                          ),
                         ),
                       ),
                     ),
@@ -119,6 +131,10 @@ class _RegisterState extends State<Register> {
                                   BorderRadius.all(Radius.circular(20))),
                           labelText: 'Confirm Password',
                           hintText: 'Confirm Password',
+                          prefixIcon: Icon(
+                            Icons.password,
+                            color: iconColor,
+                          ),
                           labelStyle: textStyle,
                           hintStyle: textStyle,
                         ),

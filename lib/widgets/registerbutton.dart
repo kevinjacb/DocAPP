@@ -16,23 +16,30 @@ class _RegisterButtonState extends State<RegisterButton> {
   _RegisterButtonState(this.width, this.height);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: widget.height,
-      width: widget.width,
-      decoration: BoxDecoration(
+    return Material(
+      borderRadius: BorderRadius.circular(30),
+      child: InkWell(
         borderRadius: BorderRadius.circular(30),
-        gradient: const LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: <Color>[Colors.black38, Colors.cyanAccent]),
-      ),
-      child: Center(
-        child: Text(
-          "Register",
-          style: GoogleFonts.robotoMono(
-              fontSize: width * 0.15,
-              fontWeight: FontWeight.bold,
-              color: Colors.white),
+        onTap: () {},
+        child: Ink(
+          height: widget.height,
+          width: widget.width,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[Colors.black, Colors.cyanAccent]),
+          ),
+          child: Center(
+            child: Text(
+              "Sign Up",
+              style: GoogleFonts.robotoMono(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
+          ),
         ),
       ),
     );
