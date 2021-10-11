@@ -20,6 +20,7 @@ class _LoginState extends State {
     double WIDTH = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       extendBody: true,
       body: Container(
         height: HEIGHT,

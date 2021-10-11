@@ -15,21 +15,46 @@ class _LoginButtonState extends State<LoginButton> {
   _LoginButtonState(this.width, this.height);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: widget.height,
-      width: widget.width,
-      decoration: BoxDecoration(
+    // return Container(
+    //   height: widget.height,
+    //   width: widget.width,
+    //   decoration: BoxDecoration(
+    //     borderRadius: BorderRadius.circular(30),
+    //     gradient: const LinearGradient(
+    //         begin: Alignment.topLeft,
+    //         end: Alignment.bottomRight,
+    //         colors: <Color>[Colors.white, Colors.cyan]),
+    //   ),
+    //   child: Center(
+    //     child: Text(
+    //       "Login",
+    //       style: GoogleFonts.robotoMono(
+    //           fontSize: width * 0.15, fontWeight: FontWeight.bold),
+    //     ),
+    //   ),
+    // );
+    return Material(
+      borderRadius: BorderRadius.circular(30),
+      child: InkWell(
         borderRadius: BorderRadius.circular(30),
-        gradient: const LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: <Color>[Colors.white, Colors.cyan]),
-      ),
-      child: Center(
-        child: Text(
-          "Login",
-          style: GoogleFonts.robotoMono(
-              fontSize: width * 0.15, fontWeight: FontWeight.bold),
+        onTap: () {},
+        child: Ink(
+          height: widget.height,
+          width: widget.width,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30),
+            gradient: const LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: <Color>[Colors.white, Colors.cyan]),
+          ),
+          child: Center(
+            child: Text(
+              "Login",
+              style: GoogleFonts.robotoMono(
+                  fontSize: width * 0.15, fontWeight: FontWeight.bold),
+            ),
+          ),
         ),
       ),
     );
