@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:doc_app/variables/variables.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/loginbutton.dart';
@@ -16,15 +17,12 @@ class Login extends StatefulWidget {
 class _LoginState extends State {
   @override
   Widget build(BuildContext context) {
-    double HEIGHT = MediaQuery.of(context).size.height;
-    double WIDTH = MediaQuery.of(context).size.width;
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       extendBody: true,
       body: Container(
-        height: HEIGHT,
-        width: WIDTH,
+        height: Variables().HEIGHT,
+        width: Variables().WIDTH,
         decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage("images/bgimage.png"), fit: BoxFit.fill),
@@ -36,21 +34,21 @@ class _LoginState extends State {
               child: Column(
                 children: [
                   SizedBox(
-                    height: HEIGHT * 0.1,
+                    height: Variables().HEIGHT * 0.1,
                   ),
                   Container(
-                    width: WIDTH * 0.3,
-                    height: WIDTH * 0.3,
+                    width: Variables().WIDTH * 0.3,
+                    height: Variables().WIDTH * 0.3,
                     child: const CircleAvatar(
                       //radius: 60,
                       backgroundImage: AssetImage('images/icon.png'),
                     ),
                   ),
                   SizedBox(
-                    height: HEIGHT * 0.05,
+                    height: Variables().HEIGHT * 0.05,
                   ),
                   SizedBox(
-                    height: HEIGHT * 0.03,
+                    height: Variables().HEIGHT * 0.03,
                   ),
                   Text(
                     "LOGIN",
@@ -58,10 +56,10 @@ class _LoginState extends State {
                         fontSize: 50, color: Colors.white),
                   ),
                   SizedBox(
-                    height: HEIGHT * 0.04,
+                    height: Variables().HEIGHT * 0.04,
                   ),
                   Container(
-                    width: WIDTH * 0.9,
+                    width: Variables().WIDTH * 0.9,
                     child: const TextField(
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
@@ -73,10 +71,10 @@ class _LoginState extends State {
                     ),
                   ),
                   SizedBox(
-                    height: HEIGHT * 0.03,
+                    height: Variables().HEIGHT * 0.03,
                   ),
                   Container(
-                    width: WIDTH * 0.9,
+                    width: Variables().WIDTH * 0.9,
                     child: const TextField(
                       obscureText: true,
                       decoration: InputDecoration(
@@ -89,9 +87,10 @@ class _LoginState extends State {
                     ),
                   ),
                   SizedBox(
-                    height: HEIGHT * 0.03,
+                    height: Variables().HEIGHT * 0.03,
                   ),
-                  LoginButton(WIDTH * 0.3, HEIGHT * 0.06),
+                  LoginButton(
+                      Variables().WIDTH * 0.3, Variables().HEIGHT * 0.06),
                   // const TextButton(
                   //   onPressed: null,
                   //   child: Text(
@@ -127,7 +126,7 @@ class _LoginState extends State {
               child: Text(
                 "Sign Up",
                 style: GoogleFonts.robotoMono(
-                    fontSize: WIDTH * 0.03, color: Colors.cyan),
+                    fontSize: Variables().WIDTH * 0.03, color: Colors.cyan),
               ),
             )
           ],
