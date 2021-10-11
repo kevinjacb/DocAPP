@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../widgets/loginbutton.dart';
 
 class Login extends StatefulWidget {
@@ -31,28 +33,38 @@ class _LoginState extends State {
               child: Column(
                 children: [
                   SizedBox(
-                    height: HEIGHT * 0.2,
+                    height: HEIGHT * 0.1,
                   ),
                   const CircleAvatar(
-                    child: Text("AH"),
+                    radius: 60,
+                    backgroundImage: AssetImage('images/icon.png'),
                   ),
                   SizedBox(
-                    height: HEIGHT * 0.01,
+                    height: HEIGHT * 0.05,
                   ),
-                  const Text("App Name"),
                   SizedBox(
                     height: HEIGHT * 0.03,
                   ),
-                  const Text("Login"),
+                  AnimatedTextKit(
+                    animatedTexts: [
+                      TypewriterAnimatedText("Login",
+                          textStyle: GoogleFonts.zcoolKuaiLe(fontSize: 50),
+                          speed: Duration(milliseconds: 200))
+                    ],
+                    // pause: Duration(seconds: 2),
+                    repeatForever: true,
+                  ),
                   SizedBox(
-                    height: HEIGHT * 0.02,
+                    height: HEIGHT * 0.04,
                   ),
                   Container(
                     width: WIDTH * 0.9,
                     child: const TextField(
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        //labelText: 'Email',
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        labelText: 'Email',
                         hintText: 'Email',
                       ),
                     ),
@@ -64,8 +76,10 @@ class _LoginState extends State {
                     width: WIDTH * 0.9,
                     child: const TextField(
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        //labelText: 'Password',
+                        border: OutlineInputBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        labelText: 'Password',
                         hintText: 'Password',
                       ),
                     ),
@@ -73,7 +87,7 @@ class _LoginState extends State {
                   SizedBox(
                     height: HEIGHT * 0.03,
                   ),
-                  LoginButton(WIDTH * 0.9, HEIGHT * 0.08),
+                  LoginButton(WIDTH * 0.3, HEIGHT * 0.06),
                   // const TextButton(
                   //   onPressed: null,
                   //   child: Text(
@@ -92,11 +106,18 @@ class _LoginState extends State {
         elevation: 0,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Text(
               "Have No Account?",
+              style: GoogleFonts.andada(fontSize: 15, color: Colors.white),
             ),
-            TextButton(onPressed: null, child: Text("Sign Up"))
+            TextButton(
+                onPressed: null,
+                child: Text(
+                  "Sign Up",
+                  style:
+                      GoogleFonts.robotoMono(fontSize: 15, color: Colors.cyan),
+                ))
           ],
         ),
       ),
