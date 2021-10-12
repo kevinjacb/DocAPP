@@ -23,6 +23,30 @@ class _HomeState extends State<Home> {
         child: Appbar(),
       ),
       //drawer: AppDrawer(),
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        //backgroundColor: Colors.black12,
+        elevation: 5,
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              backgroundColor: Colors.green,
+              label: "Haa"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            label: "Message",
+            backgroundColor: Colors.green,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: "Profile",
+            backgroundColor: Colors.green,
+          ),
+        ],
+        type: BottomNavigationBarType.fixed,
+        onTap: null,
+      ),
     );
   }
 }
