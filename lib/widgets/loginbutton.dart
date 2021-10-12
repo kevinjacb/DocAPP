@@ -40,7 +40,7 @@ class _LoginButtonState extends State<LoginButton> {
         borderRadius: BorderRadius.circular(30),
         onTap: () {
           //UPDATE REQUIRED
-          Navigator.push(
+          Navigator.pushReplacement(
               context, MaterialPageRoute(builder: (context) => Home()));
         },
         child: Ink(

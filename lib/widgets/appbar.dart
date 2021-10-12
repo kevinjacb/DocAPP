@@ -23,28 +23,28 @@ class _AppbarState extends State<Appbar> {
           fontSize: 18,
         ),
       ),
-      leading: GestureDetector(
-        child: Icon(Icons.menu),
-        onTap: () {
-          showModalBottomSheet<void>(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
-              ),
-            ),
-            context: context,
-            builder: (BuildContext context) {
-              return Container(
-                height: Variables().HEIGHT * 0.45,
-                child: Center(
-                  child: AppDrawer(),
-                ),
-              );
-            },
-          );
-        },
-      ),
+      // leading: GestureDetector(
+      //   child: Icon(Icons.menu),
+      //   onTap: () {
+      //     showModalBottomSheet<void>(
+      //       shape: RoundedRectangleBorder(
+      //         borderRadius: BorderRadius.only(
+      //           topLeft: Radius.circular(20),
+      //           topRight: Radius.circular(20),
+      //         ),
+      //       ),
+      //       context: context,
+      //       builder: (BuildContext context) {
+      //         return Container(
+      //           height: Variables().HEIGHT * 0.45,
+      //           child: Center(
+      //               //child: AppDrawer(),
+      //               ),
+      //         );
+      //       },
+      //     );
+      //   },
+      // ),
       iconTheme: IconThemeData(color: Colors.black),
       backgroundColor: Colors.white,
       actions: [
@@ -84,7 +84,7 @@ class _AppbarState extends State<Appbar> {
         ),
         Container(
           margin: EdgeInsets.only(right: 15, left: 4),
-          child: Icon(Icons.calendar_today),
+          child: Icon(Icons.add),
         )
       ],
     );
