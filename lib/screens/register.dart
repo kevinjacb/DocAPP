@@ -56,6 +56,12 @@ class _RegisterState extends State<Register> {
                                 ),
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20))),
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colors.white,
+                                ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20))),
                             labelText: 'Username',
                             hintText: 'Username',
                             labelStyle: textStyle,
@@ -74,6 +80,12 @@ class _RegisterState extends State<Register> {
                       child: const TextField(
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.white,
+                              ),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          border: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Colors.white,
                               ),
@@ -104,6 +116,12 @@ class _RegisterState extends State<Register> {
                               ),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20))),
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.white,
+                              ),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
                           labelText: 'Password',
                           hintText: 'Password',
                           labelStyle: textStyle,
@@ -124,6 +142,12 @@ class _RegisterState extends State<Register> {
                         obscureText: true,
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colors.white,
+                              ),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20))),
+                          border: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Colors.white,
                               ),

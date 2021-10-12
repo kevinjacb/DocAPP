@@ -71,6 +71,12 @@ class _LoginState extends State {
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20))),
+                        border: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                            ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
                         labelText: 'Email',
                         hintText: 'Email',
                         labelStyle: textStyle,
@@ -87,6 +93,12 @@ class _LoginState extends State {
                       obscureText: true,
                       decoration: InputDecoration(
                         enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                            ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20))),
+                        border: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colors.white,
                             ),

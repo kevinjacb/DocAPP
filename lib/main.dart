@@ -13,7 +13,8 @@ void main() {
 }
 
 class DocApp extends StatefulWidget {
-  const DocApp({Key? key}) : super(key: key);
+  //update this class in the future with StreamBuilder while
+  const DocApp({Key? key}) : super(key: key); //working with user sign ins.
 
   @override
   _DocAppState createState() => _DocAppState();
@@ -22,6 +23,6 @@ class DocApp extends StatefulWidget {
 class _DocAppState extends State {
   @override
   Widget build(BuildContext context) {
-    return Home();
+    return Login();
   }
 }

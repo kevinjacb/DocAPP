@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_this
 
+import 'package:doc_app/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -37,7 +38,11 @@ class _LoginButtonState extends State<LoginButton> {
       borderRadius: BorderRadius.circular(30),
       child: InkWell(
         borderRadius: BorderRadius.circular(30),
-        onTap: () {},
+        onTap: () {
+          //UPDATE REQUIRED
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Home()));
+        },
         child: Ink(
           height: widget.height,
           width: widget.width,
