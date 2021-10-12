@@ -15,18 +15,42 @@ class _AppDrawerState extends State<AppDrawer> {
       children: [
         ListTile(
           leading: Icon(
-            Icons.home,
+            Icons.person,
             color: Colors.black,
           ),
-          title: Text("Home"),
+          title: Text("Profile"),
           onTap: null,
         ),
         ListTile(
           leading: Icon(
-            Icons.home,
+            Icons.settings,
             color: Colors.black,
           ),
-          title: Text("Home"),
+          title: Text("Settings"),
+          onTap: null,
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.query_stats,
+            color: Colors.black,
+          ),
+          title: Text("About Us"),
+          onTap: null,
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.update,
+            color: Colors.black,
+          ),
+          title: Text("Version"),
+          onTap: null,
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.logout,
+            color: Colors.black,
+          ),
+          title: Text("Log Out"),
           onTap: null,
         )
       ],
