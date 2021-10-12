@@ -23,6 +23,16 @@ class _HomeState extends State<Home> {
         child: Appbar(),
       ),
       //drawer: AppDrawer(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        child: Icon(
+          Icons.messenger_rounded,
+          color: Colors.black,
+        ),
+        elevation: 5,
+        backgroundColor: Colors.amber,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

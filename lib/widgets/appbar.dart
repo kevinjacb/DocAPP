@@ -78,9 +78,13 @@ class _AppbarState extends State<Appbar> {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                )
+                ),
             ],
           ),
+        ),
+        Container(
+          margin: EdgeInsets.only(right: 15, left: 4),
+          child: Icon(Icons.calendar_today),
         )
       ],
     );
