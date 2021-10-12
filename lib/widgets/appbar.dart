@@ -1,3 +1,4 @@
+import 'package:doc_app/variables/variables.dart';
 import 'package:doc_app/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -14,14 +15,28 @@ class _AppbarState extends State<Appbar> {
     int numberOfNotification = 2;
     return AppBar(
       elevation: 0,
+      title: Text(
+        "Hello Username",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 18,
+        ),
+      ),
       leading: GestureDetector(
         child: Icon(Icons.menu),
         onTap: () {
           showModalBottomSheet<void>(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
+            ),
             context: context,
             builder: (BuildContext context) {
               return Container(
-                //height: 100,
+                height: Variables().HEIGHT * 0.45,
                 child: Center(
                   child: AppDrawer(),
                 ),
