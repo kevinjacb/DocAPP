@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/appbar.dart';
-import '../widgets/drawer.dart';
+
 //import '../variables/variables.dart';
 
 class Home extends StatefulWidget {
