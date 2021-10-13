@@ -16,6 +16,7 @@ class _HomeState extends State<Home> {
         child: Appbar(),
         preferredSize: Size.fromHeight(50),
       ),
+      backgroundColor: Colors.white,
     );
   }
 }

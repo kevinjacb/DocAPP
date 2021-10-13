@@ -60,8 +60,8 @@ class _AppbarState extends State<Appbar> {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(right: 15, left: 4),
-          child: Icon(Icons.add),
+          margin: EdgeInsets.only(right: 15, left: 4, top: 5),
+          child: Icon(Icons.messenger_sharp),
         )
       ],
     );
