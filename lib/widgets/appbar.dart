@@ -1,5 +1,4 @@
 import 'package:doc_app/variables/variables.dart';
-import 'package:doc_app/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
 class Appbar extends StatefulWidget {
@@ -23,28 +22,6 @@ class _AppbarState extends State<Appbar> {
           fontSize: 18,
         ),
       ),
-      // leading: GestureDetector(
-      //   child: Icon(Icons.menu),
-      //   onTap: () {
-      //     showModalBottomSheet<void>(
-      //       shape: RoundedRectangleBorder(
-      //         borderRadius: BorderRadius.only(
-      //           topLeft: Radius.circular(20),
-      //           topRight: Radius.circular(20),
-      //         ),
-      //       ),
-      //       context: context,
-      //       builder: (BuildContext context) {
-      //         return Container(
-      //           height: Variables().HEIGHT * 0.45,
-      //           child: Center(
-      //               //child: AppDrawer(),
-      //               ),
-      //         );
-      //       },
-      //     );
-      //   },
-      // ),
       iconTheme: IconThemeData(color: Colors.black),
       backgroundColor: Colors.white,
       actions: [
@@ -83,8 +60,8 @@ class _AppbarState extends State<Appbar> {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(right: 15, left: 4),
-          child: Icon(Icons.add),
+          margin: EdgeInsets.only(right: 15, left: 4, top: 5),
+          child: Icon(Icons.messenger_sharp),
         )
       ],
     );

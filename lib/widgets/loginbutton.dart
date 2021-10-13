@@ -1,6 +1,6 @@
 // ignore_for_file: unnecessary_this
 
-import 'package:doc_app/screens/home.dart';
+import 'package:doc_app/screens/layout.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -41,7 +41,7 @@ class _LoginButtonState extends State<LoginButton> {
         onTap: () {
           //UPDATE REQUIRED
           Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => Home()));
+              context, MaterialPageRoute(builder: (context) => Layout()));
         },
         child: Ink(
           height: widget.height,
