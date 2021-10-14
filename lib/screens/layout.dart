@@ -22,10 +22,10 @@ class _LayoutState extends State<Layout> {
   void initState() {
     background = TweenSequence<Color?>(<TweenSequenceItem<Color?>>[
       TweenSequenceItem<Color?>(
-          tween: ColorTween(begin: Colors.cyan, end: Colors.brown[600]),
+          tween: ColorTween(begin: Colors.cyan[100], end: Colors.brown[100]),
           weight: 1),
       TweenSequenceItem<Color?>(
-          tween: ColorTween(begin: Colors.brown[600], end: Colors.white),
+          tween: ColorTween(begin: Colors.brown[100], end: Colors.white),
           weight: 1)
     ]);
     super.initState();
