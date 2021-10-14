@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/appbar.dart';
 import 'home.dart';
-import 'calendar.dart';
+import 'rooms.dart';
 import 'profile.dart';
 
 //import '../variables/variables.dart';
@@ -48,7 +48,7 @@ class _LayoutState extends State<Layout> {
                   index = page;
                 });
               },
-              children: const [Home(), Calendar(), Profile()],
+              children: const [Home(), Rooms(), Profile()],
             ),
           );
         },
