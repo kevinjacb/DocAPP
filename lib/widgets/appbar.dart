@@ -14,7 +14,7 @@ class _AppbarState extends State<Appbar> {
     int numberOfNotification = 2;
     return AppBar(
       elevation: 0,
-      title: Text(
+      title: const Text(
         "Hello Username",
         textAlign: TextAlign.center,
         style: TextStyle(
@@ -22,33 +22,33 @@ class _AppbarState extends State<Appbar> {
           fontSize: 18,
         ),
       ),
-      iconTheme: IconThemeData(color: Colors.black),
-      backgroundColor: Colors.white,
+      iconTheme: const IconThemeData(color: Colors.black),
+      backgroundColor: Colors.transparent,
       actions: [
         Container(
-          padding: EdgeInsets.only(top: 15, right: 10),
+          padding: const EdgeInsets.only(top: 15, right: 10),
           child: Stack(
             children: <Widget>[
-              new Icon(
+              const Icon(
                 Icons.notifications,
                 size: 30,
               ),
               if (numberOfNotification > 0)
-                new Positioned(
+                Positioned(
                   right: 0,
-                  child: new Container(
-                    padding: EdgeInsets.all(1),
-                    decoration: new BoxDecoration(
+                  child: Container(
+                    padding: const EdgeInsets.all(1),
+                    decoration: BoxDecoration(
                       color: Colors.red,
                       borderRadius: BorderRadius.circular(6),
                     ),
-                    constraints: BoxConstraints(
+                    constraints: const BoxConstraints(
                       minWidth: 12,
                       minHeight: 12,
                     ),
                     child: Text(
                       numberOfNotification.toString(),
-                      style: new TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 10,
                       ),
@@ -60,8 +60,8 @@ class _AppbarState extends State<Appbar> {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(right: 15, left: 4, top: 5),
-          child: Icon(Icons.messenger_sharp),
+          margin: const EdgeInsets.only(right: 15, left: 4, top: 5),
+          child: const Icon(Icons.messenger_sharp),
         )
       ],
     );

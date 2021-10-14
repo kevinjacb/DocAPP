@@ -11,12 +11,12 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: PreferredSize(
         child: Appbar(),
         preferredSize: Size.fromHeight(50),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.transparent,
     );
   }
 }

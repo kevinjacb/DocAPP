@@ -15,20 +15,49 @@ class Layout extends StatefulWidget {
 
 class _LayoutState extends State<Layout> {
   int index = 0;
+  PageController controller = PageController(initialPage: 0);
+  late Animatable<Color?> background;
+
+  @override
+  void initState() {
+    background = TweenSequence<Color?>(<TweenSequenceItem<Color?>>[
+      TweenSequenceItem<Color?>(
+          tween: ColorTween(begin: Colors.cyan, end: Colors.brown[600]),
+          weight: 1),
+      TweenSequenceItem<Color?>(
+          tween: ColorTween(begin: Colors.brown[600], end: Colors.white),
+          weight: 1)
+    ]);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    double HEIGHT = MediaQuery.of(context).size.height;
-    List screen = [Home(), Calendar(), Profile()];
-
     return Scaffold(
-      body: screen[index],
+      body: AnimatedBuilder(
+        animation: controller,
+        builder: (context, _) {
+          final color = controller.hasClients ? controller.page! / 2.0 : 0.0;
+          return Container(
+            color: background.evaluate(AlwaysStoppedAnimation(color)),
+            child: PageView(
+              controller: controller,
+              onPageChanged: (page) {
+                setState(() {
+                  index = page;
+                });
+              },
+              children: const [Home(), Calendar(), Profile()],
+            ),
+          );
+        },
+      ),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
         elevation: 5,
         currentIndex: index,
-        items: [
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
               backgroundColor: Colors.green,
@@ -48,6 +77,8 @@ class _LayoutState extends State<Layout> {
         onTap: (int index) {
           setState(() {
             this.index = index;
+            controller.animateToPage(index,
+                duration: Duration(milliseconds: 500), curve: Curves.ease);
           });
         },
       ),
