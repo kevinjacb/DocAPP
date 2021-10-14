@@ -34,6 +34,7 @@ class _LayoutState extends State<Layout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: AnimatedBuilder(
         animation: controller,
         builder: (context, _) {
@@ -53,9 +54,11 @@ class _LayoutState extends State<Layout> {
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white12,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        elevation: 5,
+        selectedItemColor: Colors.white,
+        elevation: 2,
         currentIndex: index,
         items: const [
           BottomNavigationBarItem(
