@@ -22,9 +22,13 @@ class _HomeState extends State<Home> {
       ),
       body: Padding(
         padding: EdgeInsets.all(10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [CustomCard(), CustomCard()],
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [CustomCard(), CustomCard()],
+            ),
+          ],
         ),
       ),
       backgroundColor: Colors.transparent,
@@ -33,16 +37,17 @@ class _HomeState extends State<Home> {
 }
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({Key? key}) : super(key: key);
-
+  const CustomCard({this.height, this.width, this.text, Key? key})
+      : super(key: key);
+  final height, width, text;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
           right: Variables().HEIGHT * 0.01, left: Variables().HEIGHT * 0.01),
       child: Container(
-        height: Variables().HEIGHT * 0.3,
-        width: Variables().WIDTH * 0.4,
+        height: height,
+        width: width,
         decoration: BoxDecoration(
             color: Colors.black26, borderRadius: BorderRadius.circular(30)),
         child: Center(

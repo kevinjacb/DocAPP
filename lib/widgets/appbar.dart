@@ -14,6 +14,7 @@ class _AppbarState extends State<Appbar> {
     int numberOfNotification = 2;
     return AppBar(
       elevation: 0,
+      leading: Icon(Icons.add_circle_outline_sharp),
       title: const Text(
         "Hello Username",
         textAlign: TextAlign.center,
@@ -59,10 +60,10 @@ class _AppbarState extends State<Appbar> {
             ],
           ),
         ),
-        Container(
-          margin: const EdgeInsets.only(right: 15, left: 4, top: 5),
-          child: const Icon(Icons.messenger_sharp),
-        )
+        // Container(
+        //   margin: const EdgeInsets.only(right: 15, left: 4, top: 5),
+        //   child: const Icon(Icons.messenger_sharp),
+        // )
       ],
     );
   }
