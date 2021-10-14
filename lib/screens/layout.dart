@@ -66,7 +66,7 @@ class _LayoutState extends State<Layout> {
               backgroundColor: Colors.green,
               label: "Home"),
           BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
+            icon: Icon(Icons.meeting_room_rounded),
             label: "Message",
             backgroundColor: Colors.green,
           ),

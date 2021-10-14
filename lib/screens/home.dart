@@ -24,9 +24,21 @@ class _HomeState extends State<Home> {
         padding: EdgeInsets.all(10),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [CustomCard(), CustomCard()],
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                CustomCard(
+                  height: Variables().HEIGHT * 0.15,
+                  width: Variables().WIDTH * 0.5,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                CustomCard(
+                  height: Variables().HEIGHT * 0.15,
+                  width: Variables().WIDTH * 0.5,
+                )
+              ],
             ),
           ],
         ),
@@ -51,7 +63,7 @@ class CustomCard extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.black26, borderRadius: BorderRadius.circular(30)),
         child: Center(
-          child: Text("Your\nRooms",
+          child: Text("Your Rooms",
               style: GoogleFonts.imFellEnglish(
                   fontSize: 30, fontWeight: FontWeight.bold)),
         ),
