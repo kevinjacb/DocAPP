@@ -25,6 +25,7 @@ class _RoomState extends State<SelectedRoom> {
       ChatMessage("Is there any thing wrong?", "sender"),
     ];
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(widget.room.room_name),
         actions: <Widget>[
@@ -44,94 +45,112 @@ class _RoomState extends State<SelectedRoom> {
         ],
         centerTitle: true,
       ),
-      body: Stack(
-        children: <Widget>[
-          SingleChildScrollView(
-            child: ListView.builder(
-              itemCount: messages.length,
-              shrinkWrap: true,
-              padding: EdgeInsets.only(top: 10, bottom: 10),
-              physics: NeverScrollableScrollPhysics(),
-              itemBuilder: (context, index) {
-                return Container(
-                  padding:
-                      EdgeInsets.only(left: 14, right: 14, top: 10, bottom: 10),
-                  child: Align(
-                    alignment: (messages[index].messageType == "receiver"
-                        ? Alignment.topLeft
-                        : Alignment.topRight),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: (messages[index].messageType == "receiver"
-                            ? Colors.grey.shade200
-                            : Colors.blue[200]),
-                      ),
-                      padding: EdgeInsets.all(16),
-                      child: Text(
-                        messages[index].messageContent,
-                        style: TextStyle(fontSize: 15),
-                      ),
-                    ),
+      body: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("images/bg.jpg"), fit: BoxFit.fill)),
+          child: Stack(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(bottom: 70.0),
+                child: SingleChildScrollView(
+                  child: ListView.builder(
+                    itemCount: messages.length,
+                    shrinkWrap: true,
+                    padding: EdgeInsets.only(top: 10, bottom: 20),
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return Container(
+                        padding: EdgeInsets.only(
+                            left: 14, right: 14, top: 10, bottom: 10),
+                        child: Align(
+                          alignment: (messages[index].messageType == "receiver"
+                              ? Alignment.topLeft
+                              : Alignment.topRight),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: (messages[index].messageType == "receiver"
+                                  ? Colors.grey.shade200
+                                  : Colors.blue[200]),
+                            ),
+                            padding: EdgeInsets.all(16),
+                            child: Text(
+                              messages[index].messageContent,
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
-                );
-              },
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: Container(
-              padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
-              height: 60,
-              width: double.infinity,
-              color: Colors.white,
-              child: Row(
-                children: <Widget>[
-                  GestureDetector(
-                    onTap: () {},
-                    child: Container(
-                      height: 30,
-                      width: 30,
-                      decoration: BoxDecoration(
-                        color: Colors.lightBlue,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Expanded(
-                    child: TextField(
-                      decoration: InputDecoration(
-                          hintText: "Write message...",
-                          hintStyle: TextStyle(color: Colors.black54),
-                          border: InputBorder.none),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  FloatingActionButton(
-                    onPressed: () {},
-                    child: Icon(
-                      Icons.send,
-                      color: Colors.white,
-                      size: 18,
-                    ),
-                    backgroundColor: Colors.blue,
-                    elevation: 0,
-                  ),
-                ],
+                ),
               ),
-            ),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Container(
+                    padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
+                    height: 70,
+                    width: double.infinity,
+                    color: Colors.transparent,
+                    // decoration: BoxDecoration(
+                    //   image: DecorationImage(image: AssetImage("images/")),
+                    // ),
+                    child: Row(
+                      children: <Widget>[
+                        Ink(
+                          child: InkWell(
+                            onTap: () {},
+                            child: Icon(
+                              Icons.add_circle_rounded,
+                              size: 40,
+                              color: Colors.blue,
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: TextField(
+                            decoration: InputDecoration(
+                                fillColor: Colors.white,
+                                filled: true,
+                                hintText: "Message",
+                                hintStyle: TextStyle(color: Colors.black54),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20),
+                                    borderSide:
+                                        BorderSide(color: Colors.white))),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 8,
+                        ),
+                        FloatingActionButton(
+                          onPressed: () {},
+                          child: Icon(
+                            Icons.send,
+                            color: Colors.white,
+                            size: 19,
+                          ),
+                          backgroundColor: Colors.blue,
+                          elevation: 0,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
