@@ -20,24 +20,22 @@ class _RoomState extends State<SelectedRoom> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              CustomAppBar(home: home),
-              Container(
-                height: Variables().HEIGHT * 0.9,
-                child: PageView(
-                  controller: pageController,
-                  pageSnapping: true,
-                  onPageChanged: (context) => setState(() {
-                    home = !home;
-                    print(home);
-                  }),
-                  children: [RoomMain(), Chats(room: widget.room)],
-                ),
+        child: Column(
+          children: [
+            CustomAppBar(home: home),
+            Container(
+              height: Variables().HEIGHT * 0.87,
+              child: PageView(
+                controller: pageController,
+                pageSnapping: true,
+                onPageChanged: (context) => setState(() {
+                  home = !home;
+                  print(home);
+                }),
+                children: [RoomMain(), Chats(room: widget.room)],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -80,7 +78,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Variables().HEIGHT * 0.1,
+      height: Variables().HEIGHT * 0.08,
       child: Padding(
         padding: const EdgeInsets.only(left: 10.0, right: 5.0),
         child: Row(
@@ -92,13 +90,13 @@ class CustomAppBar extends StatelessWidget {
             ),
             Text(
               "Home",
-              style: GoogleFonts.permanentMarker(
+              style: GoogleFonts.acme(
                   fontSize: (home) ? 35 : 25,
                   color: (home) ? Colors.cyan[900] : Colors.black),
             ),
             Text(
               "Chats",
-              style: GoogleFonts.permanentMarker(
+              style: GoogleFonts.acme(
                   fontSize: (!home) ? 35 : 25,
                   color: (!home) ? Colors.cyan[900] : Colors.black),
             ),
