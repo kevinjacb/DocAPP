@@ -48,11 +48,13 @@ class _RoomsState extends State<Rooms> {
             child: InkWell(
               onTap: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => SelectedRoom(
-                              room: room[index],
-                            )));
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SelectedRoom(
+                      room: room[index],
+                    ),
+                  ),
+                );
               },
               child: Container(
                 padding: EdgeInsets.all(10),
