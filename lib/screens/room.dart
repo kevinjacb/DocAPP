@@ -14,6 +14,7 @@ class SelectedRoom extends StatefulWidget {
 class _RoomState extends State<SelectedRoom> {
   PageController pageController = PageController(initialPage: 0);
 
+  bool home = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,13 +23,16 @@ class _RoomState extends State<SelectedRoom> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              CustomAppBar(
-                home: true,
-              ),
+              CustomAppBar(home: home),
               Container(
                 height: Variables().HEIGHT * 0.9,
                 child: PageView(
                   controller: pageController,
+                  pageSnapping: true,
+                  onPageChanged: (context) => setState(() {
+                    home = !home;
+                    print(home);
+                  }),
                   children: [RoomMain(), Chats(room: widget.room)],
                 ),
               ),
@@ -88,11 +92,15 @@ class CustomAppBar extends StatelessWidget {
             ),
             Text(
               "Home",
-              style: GoogleFonts.zcoolKuaiLe(fontSize: (home) ? 35 : 25),
+              style: GoogleFonts.permanentMarker(
+                  fontSize: (home) ? 35 : 25,
+                  color: (home) ? Colors.cyan[900] : Colors.black),
             ),
             Text(
               "Chats",
-              style: GoogleFonts.zcoolKuaiLe(fontSize: !(home) ? 35 : 25),
+              style: GoogleFonts.permanentMarker(
+                  fontSize: (!home) ? 35 : 25,
+                  color: (!home) ? Colors.cyan[900] : Colors.black),
             ),
             PopupMenuButton(
                 itemBuilder: (context) => [
