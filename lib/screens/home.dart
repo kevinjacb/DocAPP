@@ -30,6 +30,7 @@ class _HomeState extends State<Home> {
                 CustomCard(
                   height: Variables().HEIGHT * 0.15,
                   width: Variables().WIDTH * 0.5,
+                  text: "Your Room",
                 ),
                 SizedBox(
                   height: 20,
@@ -37,6 +38,7 @@ class _HomeState extends State<Home> {
                 CustomCard(
                   height: Variables().HEIGHT * 0.15,
                   width: Variables().WIDTH * 0.5,
+                  text: "Your connections",
                 )
               ],
             ),
@@ -63,7 +65,7 @@ class CustomCard extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.black26, borderRadius: BorderRadius.circular(30)),
         child: Center(
-          child: Text("Your Rooms",
+          child: Text(text,
               style: GoogleFonts.imFellEnglish(
                   fontSize: 30, fontWeight: FontWeight.bold)),
         ),

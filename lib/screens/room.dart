@@ -1,151 +1,35 @@
+import 'package:doc_app/screens/chats.dart';
+import 'package:doc_app/screens/home.dart';
+import 'package:doc_app/variables/variables.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SelectedRoom extends StatefulWidget {
-  SelectedRoom({required this.room, Key? key}) : super(key: key);
+  const SelectedRoom({this.room, Key? key}) : super(key: key);
   final room;
   @override
   _RoomState createState() => _RoomState();
 }
 
 class _RoomState extends State<SelectedRoom> {
+  PageController pageController = PageController(initialPage: 0);
+
   @override
   Widget build(BuildContext context) {
-    List<ChatMessage> messages = [
-      ChatMessage("Hello, Will", "receiver"),
-      ChatMessage("How have you been?", "receiver"),
-      ChatMessage("Hey Kriss, I am doing fine dude. wbu?", "sender"),
-      ChatMessage("ehhhh, doing OK.", "receiver"),
-      ChatMessage("Is there any thing wrong?", "sender"),
-      ChatMessage("Is there any thing wrong?", "sender"),
-      ChatMessage("Is there any thing wrong?", "sender"),
-      ChatMessage("Is there any thing wrong?", "sender"),
-      ChatMessage("Is there any thing wrong?", "sender"),
-      ChatMessage("Is there any thing wrong?", "sender"),
-      ChatMessage("Is there any thing wrong?", "sender"),
-      ChatMessage("Is there any thing wrong?", "sender"),
-    ];
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(widget.room.room_name),
-        actions: <Widget>[
-          PopupMenuButton(
-            itemBuilder: (context) => [
-              PopupMenuItem(
-                value: 0,
-                child: Text('Media'),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CustomAppBar(
+                home: true,
               ),
-              PopupMenuItem(
-                value: 1,
-                child: Text('Settings'),
-              ),
-              PopupMenuItem(value: 2, child: Text('Exit Room')),
-            ],
-          ),
-        ],
-        centerTitle: true,
-      ),
-      body: GestureDetector(
-        onTap: () {
-          FocusScope.of(context).requestFocus(FocusNode());
-        },
-        child: Container(
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("images/bg.jpg"), fit: BoxFit.fill)),
-          child: Stack(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(bottom: 70.0),
-                child: SingleChildScrollView(
-                  child: ListView.builder(
-                    itemCount: messages.length,
-                    shrinkWrap: true,
-                    padding: EdgeInsets.only(top: 10, bottom: 20),
-                    physics: NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return Container(
-                        padding: EdgeInsets.only(
-                            left: 14, right: 14, top: 10, bottom: 10),
-                        child: Align(
-                          alignment: (messages[index].messageType == "receiver"
-                              ? Alignment.topLeft
-                              : Alignment.topRight),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: (messages[index].messageType == "receiver"
-                                  ? Colors.grey.shade200
-                                  : Colors.blue[200]),
-                            ),
-                            padding: EdgeInsets.all(16),
-                            child: Text(
-                              messages[index].messageContent,
-                              style: TextStyle(fontSize: 15),
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
-                    height: 70,
-                    width: double.infinity,
-                    color: Colors.transparent,
-                    // decoration: BoxDecoration(
-                    //   image: DecorationImage(image: AssetImage("images/")),
-                    // ),
-                    child: Row(
-                      children: <Widget>[
-                        Ink(
-                          child: InkWell(
-                            onTap: () {},
-                            child: Icon(
-                              Icons.add_circle_rounded,
-                              size: 40,
-                              color: Colors.blue,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                          child: TextField(
-                            decoration: InputDecoration(
-                                fillColor: Colors.white,
-                                filled: true,
-                                hintText: "Message",
-                                hintStyle: TextStyle(color: Colors.black54),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20),
-                                    borderSide:
-                                        BorderSide(color: Colors.white))),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 8,
-                        ),
-                        FloatingActionButton(
-                          onPressed: () {},
-                          child: Icon(
-                            Icons.send,
-                            color: Colors.white,
-                            size: 19,
-                          ),
-                          backgroundColor: Colors.blue,
-                          elevation: 0,
-                        ),
-                      ],
-                    ),
-                  ),
+              Container(
+                height: Variables().HEIGHT * 0.9,
+                child: PageView(
+                  controller: pageController,
+                  children: [RoomMain(), Chats(room: widget.room)],
                 ),
               ),
             ],
@@ -156,8 +40,72 @@ class _RoomState extends State<SelectedRoom> {
   }
 }
 
-class ChatMessage {
-  String messageContent;
-  String messageType;
-  ChatMessage(this.messageContent, @required this.messageType);
+class RoomMain extends StatelessWidget {
+  const RoomMain({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 50.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CustomCard(
+            height: Variables().HEIGHT * 0.2,
+            width: Variables().WIDTH * 0.40,
+            text: "Content 1",
+          ),
+          SizedBox(
+            width: 30,
+          ),
+          CustomCard(
+            height: Variables().HEIGHT * 0.2,
+            width: Variables().WIDTH * 0.40,
+            text: "Content 2",
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({required this.home, Key? key}) : super(key: key);
+  final home;
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: Variables().HEIGHT * 0.1,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10.0, right: 5.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Icon(
+              Icons.arrow_back_rounded,
+              color: Colors.cyan,
+            ),
+            Text(
+              "Home",
+              style: GoogleFonts.zcoolKuaiLe(fontSize: (home) ? 35 : 25),
+            ),
+            Text(
+              "Chats",
+              style: GoogleFonts.zcoolKuaiLe(fontSize: !(home) ? 35 : 25),
+            ),
+            PopupMenuButton(
+                itemBuilder: (context) => [
+                      PopupMenuItem(
+                        child: Text("Settings"),
+                      ),
+                      PopupMenuItem(
+                        child: Text("Exit Room"),
+                      )
+                    ])
+          ],
+        ),
+      ),
+    );
+  }
 }
