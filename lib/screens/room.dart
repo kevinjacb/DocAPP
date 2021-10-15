@@ -22,18 +22,24 @@ class _RoomState extends State<SelectedRoom> {
       body: SafeArea(
         child: Column(
           children: [
-            CustomAppBar(home: home),
-            Container(
-              height: Variables().HEIGHT * 0.87,
-              child: PageView(
-                controller: pageController,
-                pageSnapping: true,
-                onPageChanged: (context) => setState(() {
-                  home = !home;
-                  print(home);
-                }),
-                children: [RoomMain(), Chats(room: widget.room)],
+            Expanded(
+              child: CustomAppBar(home: home),
+              flex: 1,
+            ),
+            Expanded(
+              child: Container(
+                // height: Variables().HEIGHT * 0.87,
+                child: PageView(
+                  controller: pageController,
+                  pageSnapping: true,
+                  onPageChanged: (context) => setState(() {
+                    home = !home;
+                    print(home);
+                  }),
+                  children: [RoomMain(), Chats(room: widget.room)],
+                ),
               ),
+              flex: 10,
             ),
           ],
         ),
@@ -78,7 +84,7 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: Variables().HEIGHT * 0.08,
+      // height: Variables().HEIGHT * 0.08,
       child: Padding(
         padding: const EdgeInsets.only(left: 10.0, right: 5.0),
         child: Row(
